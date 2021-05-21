@@ -17,4 +17,5 @@ const execute = async () => {
         console.log(result);
     }
 }
+console.log("Running....")
 execute();
