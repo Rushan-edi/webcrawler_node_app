@@ -7,15 +7,14 @@ require('./models/bootstrap.js')();     // comment this when you dont want to cr
 
 const urls = ['https://www.srilanka.travel', 'http://www.tourismmin.gov.lk/web/index.php/en/'];  // add  more urls here
 
-const execute = async () => {
+const execute = async (links) => {
     try {
-        let keywords = await locationControler.getKeywords();
-        let locations = await locationControler.getAllLocations();
-        let result = await (locationControler.findKeywordsInSite(urls, locations, keywords));
+        const keywords = await locationControler.getKeywords();
+        const locations = await locationControler.getAllLocations();
+        const result = await (locationControler.findKeywordsInSite(links, locations, keywords));
         console.log(result);
     } catch (error) {
-        console.log(result);
+        console.log(error);
     }
 }
-console.log("Running....")
-execute();
+execute(urls);
